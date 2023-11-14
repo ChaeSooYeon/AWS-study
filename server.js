@@ -7,14 +7,14 @@ const app = express();
 const port = 3000;
 
 //test
-app.get("/ping", (req, res) => {
-    res.send("pong");
+app.get("/test", (req, res) => {
+    res.send("hello world");
 });
 
-app.use(express.static(join("__dirname", "dist")));
+//app.use(express.static(join("__dirname", "dist")));
 
-app.get("/*", (req, res) => {
-    res.sendFile(join("__dirname", "dist", "index.html"));
+app.use("*", (req, res) => {
+    return handle(req, res, req.url);
 });
 
 createServer(app).listen(port, () => {
