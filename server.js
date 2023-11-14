@@ -4,7 +4,7 @@ import { join } from "path";
 
 const app = express();
 
-const port = 3300;
+const port = 3000;
 
 //test
 app.get("/ping", (req, res) => {
