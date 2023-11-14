@@ -6,19 +6,15 @@ const app = express();
 
 const port = 3300;
 
+//test
 app.get("/ping", (req, res) => {
     res.send("pong");
 });
 
-app.use(express.static(join("__dirname", "build")));
+app.use(express.static(join("__dirname", "dist")));
 
 app.get("/*", (req, res) => {
-    res.set({
-        "Cache-Control": "no-cache, no-store, must-revalidate",
-        Pragma: "no-cache",
-        Date: Date.now()
-    });
-    res.sendFile(join("__dirname", "build", "index.html"));
+    res.sendFile(join("__dirname", "dist", "index.html"));
 });
 
 createServer(app).listen(port, () => {
