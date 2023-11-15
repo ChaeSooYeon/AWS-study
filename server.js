@@ -27,7 +27,7 @@ app.use(express.static(join(__dirname, "dist")));
  * vite 는 빌드파일이 dist 폴더 안에 생성되므로 "dist" 경로 추가
  */
 app.get("*", (req, res) => {
-    res.sendFile(join("__dirname", "dist", "index.html"));
+    res.sendFile(join(__dirname, "dist", "index.html"));
 });
 
 /**
